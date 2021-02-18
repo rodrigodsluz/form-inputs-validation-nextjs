@@ -1,26 +1,37 @@
 import styled from 'styled-components';
 
 import { FaMagento } from 'react-icons/fa';
-import { Container } from '../../styles/global';
 
-export const Nav = styled.nav`
-  background: #101522;
+export const NavbarContainer = styled.nav`
+  background: ${(props) => props.theme.colors.navbarBackground};
+
   height: 50px;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.7rem;
-  position: sticky;
-  top: 0;
-  z-index: 999;
+
+  font-size: 1.6rem;
+
+  z-index: 1;
 `;
 
-export const NavbarContainer = styled(Container)`
+export const NavbarContent = styled.div`
+  height: 50px;
+  width: 100%;
+  max-width: 1300px;
+
   display: flex;
   justify-content: space-between;
-  height: 80px;
-  ${Container}
+
+  margin: 0 auto;
+  padding: 0 50px;
+
+  @media screen and (max-width: 991px) {
+    padding: 0 30px;
+  }
 `;
+
 export const NavLogo = styled.a`
   color: #fff;
   justify-self: flex-start;
@@ -126,7 +137,7 @@ export const NavLinks = styled.a`
   align-items: center;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  height: 100%;
+  height: 50px;
   cursor: pointer;
 
   @media screen and (max-width: 960px) {
@@ -147,7 +158,7 @@ export const SignoutBtn = styled.span`
   align-items: center;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  height: 100%;
+  height: 50px;
   cursor: pointer;
 
   @media screen and (max-width: 960px) {

@@ -4,8 +4,8 @@ import { useRouter } from 'next/router';
 import { IconContext } from 'react-icons/lib';
 import { useEffect, useState } from 'react';
 import {
-  Nav,
   NavbarContainer,
+  NavbarContent,
   NavLogo,
   NavIcon,
   MobileIcon,
@@ -53,8 +53,8 @@ const Navbar = () : JSX.Element => {
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
-        <Nav>
-          <NavbarContainer>
+        <NavbarContainer>
+          <NavbarContent>
             <Link href="/">
               <NavLogo>
                 <NavIcon />
@@ -124,8 +124,8 @@ const Navbar = () : JSX.Element => {
                 </SignoutBtn>
               </NavItem>
             </NavMenu>
-          </NavbarContainer>
-        </Nav>
+          </NavbarContent>
+        </NavbarContainer>
       </IconContext.Provider>
     </>
   );
