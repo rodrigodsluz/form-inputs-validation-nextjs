@@ -10,7 +10,7 @@ export default createGlobalStyle`
   body {
     background: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.text};
-    font: 400 16px Roboto, sans-serif;
+    font: 400 1.6rem Archivo, sans-serif;
   }
 
   :root {
@@ -21,24 +21,24 @@ export default createGlobalStyle`
     height: 100vh;
   }
 
-  #root {
+  /* #root {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+  } */
 
   body,
   input,
   button,
   textarea {
     font: 500 1.6rem Poppins;
-    color: #6A6180;
+    color: ${(props) => props.theme.colors.colorTextBase};
   }
 
-  .container {
+  /* .container {
     width: 90vw;
     max-width: 700px;
-  }
+  } */
 
   @media (min-width: 700px) {
     :root {
