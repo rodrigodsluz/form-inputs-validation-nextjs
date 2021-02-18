@@ -20,7 +20,7 @@ import {
 } from './styles';
 import { Button } from '../../styles/global';
 
-const Navbar = () => {
+const Navbar = () : JSX.Element => {
   const router = useRouter();
 
   const [click, setClick] = useState(false);
@@ -45,7 +45,7 @@ const Navbar = () => {
     window.addEventListener('resize', showButton);
   });
 
-  const isActive = path => {
+  const isActive = (path) => {
     if (router.pathname === path) {
       return { color: 'red' };
     }

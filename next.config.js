@@ -5,9 +5,6 @@ module.exports = withImages({
 });
 
 module.exports = {
-  env: {
-    REACT_APP_API_URL: 'http://localhost:3333',
-  },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if

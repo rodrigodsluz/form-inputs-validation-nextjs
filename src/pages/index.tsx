@@ -4,7 +4,7 @@ import { Layout } from '../components';
 const Home: React.FC = () => (
   <>
     <Head>
-      <title>Robson App</title>
+      <title>Rodrigo Luz</title>
     </Head>
     <Layout title="Title" description="Description">
       Content

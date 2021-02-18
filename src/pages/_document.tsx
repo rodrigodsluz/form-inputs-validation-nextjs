@@ -1,4 +1,3 @@
-import React from 'react';
 import Document, {
   DocumentInitialProps,
   DocumentContext,
@@ -17,7 +16,8 @@ export default class MyDocument extends Document {
     const originalRenderPage = ctx.renderPage;
 
     try {
-      ctx.renderPage = () => originalRenderPage({
+      ctx.renderPage = () =>
+        originalRenderPage({
           enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
         });
 
@@ -38,9 +38,11 @@ export default class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <Html lang="pt">
+      <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="theme-color" content="#000000" />
 
           <link
             href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
