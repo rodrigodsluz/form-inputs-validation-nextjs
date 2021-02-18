@@ -32,21 +32,48 @@ export const NavbarContent = styled.div`
   }
 `;
 
-export const NavLogo = styled.a`
-  color: #fff;
-  justify-self: flex-start;
+export const NavbarLogo = styled.a`
   cursor: pointer;
+
   text-decoration: none;
+
   font-size: 2rem;
+
   display: flex;
   align-items: center;
 `;
 
-export const TextMenu = styled.span`
-  color: #fff;
+export const NavbarIcon = styled(FaMagento)`
+  margin-right: 0.5rem;
+
+  &:hover {
+    fill: #4b59f7;
+    transition: all 0.3s ease;
+  }
+`;
+
+export const NavbarMenuText = styled.span`
+  color: ${(props) => props.theme.colors.navbarText};
+
   &:hover {
     color: #4b59f7;
     transition: all 0.3s ease;
+  }
+`;
+
+export const MobileIcon = styled.div`
+  display: none;
+
+  @media screen and (max-width: 960px) {
+    display: block;
+    position: absolute;
+
+    right: 0;
+    transform: translate(-100%, 60%);
+
+    font-size: 1.8rem;
+
+    cursor: pointer;
   }
 `;
 
@@ -68,23 +95,6 @@ export const SignUpBtn = styled.button`
   }
   @media screen and (max-width: 960px) {
     width: 100%;
-  }
-`;
-
-export const NavIcon = styled(FaMagento)`
-  margin-right: 0.5rem;
-`;
-
-export const MobileIcon = styled.div`
-  display: none;
-  @media screen and (max-width: 960px) {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
-    font-size: 1.8rem;
-    cursor: pointer;
   }
 `;
 

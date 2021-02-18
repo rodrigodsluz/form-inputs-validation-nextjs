@@ -5,6 +5,7 @@ const theme = {
     primary: '#8257e6',
     colorTextBase: '#6A6180',
     navbarBackground: '#101522',
+    navbarText: '#fff',
   },
 };
 
