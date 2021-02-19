@@ -9,9 +9,9 @@ import {
   NavbarLogo,
   NavbarIcon,
   NavbarMenuText,
-  MobileIcon,
-  NavMenu,
-  NavItem,
+  NavbarMobileMenuIcon,
+  NavbarMobileMenu,
+  NavbarItem,
   NavItemBtn,
   NavLinks,
   NavBtnLink,
@@ -20,7 +20,7 @@ import {
 } from './styles';
 import { Button } from '../../styles/global';
 
-const Navbar = () : JSX.Element => {
+const Navbar = (): JSX.Element => {
   const router = useRouter();
 
   const [mobileIconClick, setMobileIconClick] = useState(false);
@@ -51,83 +51,86 @@ const Navbar = () : JSX.Element => {
     }
   };
   return (
-      <IconContext.Provider value={{ color: '#fff' }}>
-        <NavbarContainer>
-          <NavbarContent>
-            <Link href="/">
-              <NavbarLogo>
-                <NavbarIcon />
-                <NavbarMenuText>Rodrigo Luz App</NavbarMenuText>
-              </NavbarLogo>
-            </Link>
+    <IconContext.Provider value={{ color: '#fff' }}>
+      <NavbarContainer>
+        <NavbarContent>
+          <Link href="/">
+            <NavbarLogo>
+              <NavbarIcon />
+              <NavbarMenuText>Rodrigo Luz App</NavbarMenuText>
+            </NavbarLogo>
+          </Link>
 
-            <MobileIcon onClick={handleMobileIconClick}>
-              {mobileIconClick ? <FaTimes /> : <FaBars />}
-            </MobileIcon>
+          <NavbarMobileMenuIcon onClick={handleMobileIconClick}>
+            {mobileIconClick ? <FaTimes /> : <FaBars />}
+          </NavbarMobileMenuIcon>
 
-            <NavMenu onClick={handleMobileIconClick} click={mobileIconClick}>
-              <NavItem>
+          <NavbarMobileMenu
+            onClick={handleMobileIconClick}
+            mobileClick={mobileIconClick}
+          >
+            <NavbarItem>
+              <Link href="/">
+                <NavLinks onClick={closeMobileMenu}>
+                  <NavbarMenuText style={isActive('/')}>Home</NavbarMenuText>
+                </NavLinks>
+              </Link>
+            </NavbarItem>
+
+            <NavbarItem>
+              <Link href="/">
+                <NavLinks onClick={closeMobileMenu}>
+                  <NavbarMenuText style={isActive('/dashboard')}>
+                    Dashboard
+                  </NavbarMenuText>
+                </NavLinks>
+              </Link>
+            </NavbarItem>
+
+            <>
+              <NavbarItem>
                 <Link href="/">
                   <NavLinks onClick={closeMobileMenu}>
-                    <NavbarMenuText style={isActive('/')}>Home</NavbarMenuText>
-                  </NavLinks>
-                </Link>
-              </NavItem>
-
-              <NavItem>
-                <Link href="/">
-                  <NavLinks onClick={closeMobileMenu}>
-                    <NavbarMenuText style={isActive('/dashboard')}>
-                      Dashboard
+                    <NavbarMenuText style={isActive('/signin')}>
+                      Signin
                     </NavbarMenuText>
                   </NavLinks>
                 </Link>
-              </NavItem>
+              </NavbarItem>
 
-              <>
-                <NavItem>
+              <NavItemBtn>
+                {button ? (
                   <Link href="/">
-                    <NavLinks onClick={closeMobileMenu}>
-                      <NavbarMenuText style={isActive('/signin')}>Signin</NavbarMenuText>
-                    </NavLinks>
+                    <NavBtnLink>
+                      <SignUpBtn style={isActive('/signup')}>SIGN UP</SignUpBtn>
+                    </NavBtnLink>
                   </Link>
-                </NavItem>
+                ) : (
+                  <Link href="/">
+                    <NavBtnLink>
+                      <Button
+                        style={isActive('/signup')}
+                        onClick={closeMobileMenu}
+                      >
+                        SIGN UP
+                      </Button>
+                    </NavBtnLink>
+                  </Link>
+                )}
+              </NavItemBtn>
+            </>
 
-                <NavItemBtn>
-                  {button ? (
-                    <Link href="/">
-                      <NavBtnLink>
-                        <SignUpBtn style={isActive('/signup')}>
-                          SIGN UP
-                        </SignUpBtn>
-                      </NavBtnLink>
-                    </Link>
-                  ) : (
-                    <Link href="/">
-                      <NavBtnLink>
-                        <Button
-                          style={isActive('/signup')}
-                          onClick={closeMobileMenu}
-                        >
-                          SIGN UP
-                        </Button>
-                      </NavBtnLink>
-                    </Link>
-                  )}
-                </NavItemBtn>
-              </>
-
-              <NavItem>
-                <SignoutBtn>
-                  <NavbarMenuText style={{ cursor: 'pointer', color: '#fff' }}>
-                    Signout
-                  </NavbarMenuText>
-                </SignoutBtn>
-              </NavItem>
-            </NavMenu>
-          </NavbarContent>
-        </NavbarContainer>
-      </IconContext.Provider>
+            <NavbarItem>
+              <SignoutBtn>
+                <NavbarMenuText style={{ cursor: 'pointer', color: '#fff' }}>
+                  Signout
+                </NavbarMenuText>
+              </SignoutBtn>
+            </NavbarItem>
+          </NavbarMobileMenu>
+        </NavbarContent>
+      </NavbarContainer>
+    </IconContext.Provider>
   );
 };
 

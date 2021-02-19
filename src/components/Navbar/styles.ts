@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 import { FaMagento } from 'react-icons/fa';
 
+interface Props {
+  mobileClick: boolean;
+}
+
 export const NavbarContainer = styled.nav`
   background: ${(props) => props.theme.colors.navbarBackground};
 
@@ -61,7 +65,7 @@ export const NavbarMenuText = styled.span`
   }
 `;
 
-export const MobileIcon = styled.div`
+export const NavbarMobileMenuIcon = styled.div`
   display: none;
 
   @media screen and (max-width: 960px) {
@@ -74,6 +78,69 @@ export const MobileIcon = styled.div`
     font-size: 1.8rem;
 
     cursor: pointer;
+  }
+`;
+
+export const NavbarMobileMenu = styled.ul<Props>`
+  display: flex;
+  list-style: none;
+
+  @media screen and (max-width: 960px) {
+    flex-direction: column;
+
+    width: 100%;
+    height: 40vh;
+
+    position: absolute;
+
+    top: 50px;
+    left: ${({ mobileClick }) => (mobileClick ? 0 : '-100%')};
+
+    transition: all 0.5s ease;
+
+    background: ${(props) => props.theme.colors.navbarBackground};
+
+    border-top: 1px solid red;
+  }
+`;
+
+export const NavbarItem = styled.li`
+  height: 50px;
+
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    border-bottom: 2px solid #4b59f7;
+  }
+
+  @media screen and (max-width: 960px) {
+    height: 20px;
+    padding-bottom: 30px;
+
+    &:hover {
+      border: none;
+    }
+  }
+`;
+
+export const NavLinks = styled.a`
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 50px;
+  cursor: pointer;
+
+  @media screen and (max-width: 960px) {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+    &:hover {
+      color: #4b59f7;
+      transition: all 0.3s ease;
+    }
   }
 `;
 
@@ -98,39 +165,6 @@ export const SignUpBtn = styled.button`
   }
 `;
 
-export const NavMenu = styled.ul`
-  display: flex;
-  /* align-items: center; */
-  list-style: none;
-  text-align: center;
-  @media screen and (max-width: 960px) {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 90vh;
-    position: absolute;
-    top: 80px;
-    left: ${({ click }) => (click ? 0 : '-100%')};
-    opacity: 1;
-    transition: all 0.5s ease;
-    background: #101522;
-  }
-`;
-
-export const NavItem = styled.li`
-  height: 80px;
-  border-bottom: 2px solid transparent;
-  &:hover {
-    border-bottom: 2px solid #4b59f7;
-  }
-  @media screen and (max-width: 960px) {
-    width: 100%;
-    &:hover {
-      border: none;
-    }
-  }
-`;
-
 export const NavItemBtn = styled.li`
   @media screen and (max-width: 960px) {
     display: flex;
@@ -138,27 +172,6 @@ export const NavItemBtn = styled.li`
     align-items: center;
     width: 100%;
     height: 120px;
-  }
-`;
-
-export const NavLinks = styled.a`
-  color: #fff;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  height: 50px;
-  cursor: pointer;
-
-  @media screen and (max-width: 960px) {
-    text-align: center;
-    padding: 2rem;
-    width: 100%;
-    display: table;
-    &:hover {
-      color: #4b59f7;
-      transition: all 0.3s ease;
-    }
   }
 `;
 
