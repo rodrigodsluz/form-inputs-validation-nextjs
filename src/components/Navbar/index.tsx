@@ -4,17 +4,17 @@ import { useRouter } from 'next/router';
 import { IconContext } from 'react-icons/lib';
 import { useEffect, useState } from 'react';
 import {
-  Nav,
   NavbarContainer,
-  NavLogo,
-  NavIcon,
+  NavbarContent,
+  NavbarLogo,
+  NavbarIcon,
+  NavbarMenuText,
   MobileIcon,
   NavMenu,
   NavItem,
   NavItemBtn,
   NavLinks,
   NavBtnLink,
-  TextMenu,
   SignoutBtn,
   SignUpBtn,
 } from './styles';
@@ -23,11 +23,11 @@ import { Button } from '../../styles/global';
 const Navbar = () : JSX.Element => {
   const router = useRouter();
 
-  const [click, setClick] = useState(false);
+  const [mobileIconClick, setMobileIconClick] = useState(false);
   const [button, setButton] = useState(true);
 
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
+  const handleMobileIconClick = () => setMobileIconClick(!mobileIconClick);
+  const closeMobileMenu = () => setMobileIconClick(false);
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -51,24 +51,25 @@ const Navbar = () : JSX.Element => {
     }
   };
   return (
-    <>
       <IconContext.Provider value={{ color: '#fff' }}>
-        <Nav>
-          <NavbarContainer>
+        <NavbarContainer>
+          <NavbarContent>
             <Link href="/">
-              <NavLogo>
-                <NavIcon />
-                <TextMenu>Robson App</TextMenu>
-              </NavLogo>
+              <NavbarLogo>
+                <NavbarIcon />
+                <NavbarMenuText>Rodrigo Luz App</NavbarMenuText>
+              </NavbarLogo>
             </Link>
-            <MobileIcon onClick={handleClick}>
-              {click ? <FaTimes /> : <FaBars />}
+
+            <MobileIcon onClick={handleMobileIconClick}>
+              {mobileIconClick ? <FaTimes /> : <FaBars />}
             </MobileIcon>
-            <NavMenu onClick={handleClick} click={click}>
+
+            <NavMenu onClick={handleMobileIconClick} click={mobileIconClick}>
               <NavItem>
                 <Link href="/">
                   <NavLinks onClick={closeMobileMenu}>
-                    <TextMenu style={isActive('/')}>Home</TextMenu>
+                    <NavbarMenuText style={isActive('/')}>Home</NavbarMenuText>
                   </NavLinks>
                 </Link>
               </NavItem>
@@ -76,9 +77,9 @@ const Navbar = () : JSX.Element => {
               <NavItem>
                 <Link href="/">
                   <NavLinks onClick={closeMobileMenu}>
-                    <TextMenu style={isActive('/dashboard')}>
+                    <NavbarMenuText style={isActive('/dashboard')}>
                       Dashboard
-                    </TextMenu>
+                    </NavbarMenuText>
                   </NavLinks>
                 </Link>
               </NavItem>
@@ -87,7 +88,7 @@ const Navbar = () : JSX.Element => {
                 <NavItem>
                   <Link href="/">
                     <NavLinks onClick={closeMobileMenu}>
-                      <TextMenu style={isActive('/signin')}>Signin</TextMenu>
+                      <NavbarMenuText style={isActive('/signin')}>Signin</NavbarMenuText>
                     </NavLinks>
                   </Link>
                 </NavItem>
@@ -118,16 +119,15 @@ const Navbar = () : JSX.Element => {
 
               <NavItem>
                 <SignoutBtn>
-                  <TextMenu style={{ cursor: 'pointer', color: '#fff' }}>
+                  <NavbarMenuText style={{ cursor: 'pointer', color: '#fff' }}>
                     Signout
-                  </TextMenu>
+                  </NavbarMenuText>
                 </SignoutBtn>
               </NavItem>
             </NavMenu>
-          </NavbarContainer>
-        </Nav>
+          </NavbarContent>
+        </NavbarContainer>
       </IconContext.Provider>
-    </>
   );
 };
 
