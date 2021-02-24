@@ -1,10 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { FaMagento } from 'react-icons/fa';
-
-interface Props {
-  mobileClick: boolean;
-}
 
 export const NavbarContainer = styled.nav`
   background: ${(props) => props.theme.colors.navbarBackground};
@@ -81,7 +77,11 @@ export const NavbarMobileMenuIcon = styled.div`
   }
 `;
 
-export const NavbarMobileMenu = styled.ul<Props>`
+interface NavbarMenuProps {
+  mobileClick: boolean;
+}
+
+export const NavbarMenu = styled.ul<NavbarMenuProps>`
   display: flex;
   list-style: none;
 
@@ -123,13 +123,12 @@ export const NavbarItem = styled.li`
   }
 `;
 
-export const NavLinks = styled.a`
-  color: #fff;
+export const NavbarLinks = styled.a`
   display: flex;
   align-items: center;
-  text-decoration: none;
   padding: 0.5rem 1rem;
   height: 50px;
+
   cursor: pointer;
 
   @media screen and (max-width: 960px) {
@@ -137,6 +136,8 @@ export const NavLinks = styled.a`
     padding: 2rem;
     width: 100%;
     display: table;
+    padding: 3px;
+
     &:hover {
       color: #4b59f7;
       transition: all 0.3s ease;
@@ -144,34 +145,44 @@ export const NavLinks = styled.a`
   }
 `;
 
-export const SignUpBtn = styled.button`
-  margin-bottom: 12px;
-  border-radius: 4px;
-  background: ${({ primary }) => (primary ? '#4B59F7' : '#0467FB')};
-  white-space: nowrap;
-  padding: ${({ big }) => (big ? '12px 64px' : '10px 20px')};
-  color: #fff;
-  font-size: ${({ fontBig }) => (fontBig ? '20px' : '16px')};
-  outline: none;
-  border: none;
-  cursor: pointer;
-  &:hover {
-    transition: all 0.3s ease-out;
-    background: #fff;
-    background-color: ${({ primary }) => (primary ? '#0467FB' : '#4B59F7')};
-  }
-  @media screen and (max-width: 960px) {
-    width: 100%;
-  }
-`;
-
-export const NavItemBtn = styled.li`
+export const NavbarItemBtn = styled.li`
   @media screen and (max-width: 960px) {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 120px;
+  }
+`;
+
+export const SignUpBtn = styled.button`
+  border-radius: 12px;
+  border: none;
+
+  outline: none;
+
+  background: ${(props) => props.theme.colors.signUpBtn};
+  color: ${(props) => props.theme.colors.navbarText};
+
+  padding: 5px 10px;
+
+  cursor: pointer;
+
+  &:hover {
+    transition: all 0.3s ease-out;
+    background: #0467fb;
+  }
+
+  &:active {
+    outline: double;
+  }
+
+  @media screen and (max-width: 960px) {
+    width: 30%;
+
+    top: -30px;
+
+    position: relative;
   }
 `;
 
@@ -194,17 +205,4 @@ export const SignoutBtn = styled.span`
       transition: all 0.3s ease;
     }
   }
-`;
-
-export const NavBtnLink = styled.a`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  padding: 8px 16px;
-  height: 100%;
-  width: 100%;
-  border: none;
-  outline: none;
-  margin-top: 6.5px;
 `;
