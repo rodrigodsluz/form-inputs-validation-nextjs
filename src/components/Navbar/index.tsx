@@ -10,44 +10,43 @@ import {
   NavbarIcon,
   NavbarMenuText,
   NavbarMobileMenuIcon,
-  NavbarMobileMenu,
+  NavbarMenu,
   NavbarItem,
-  NavItemBtn,
-  NavLinks,
-  NavBtnLink,
-  SignoutBtn,
+  NavbarLinks,
+  NavbarItemBtn,
   SignUpBtn,
+  SignoutBtn,
 } from './styles';
-import { Button } from '../../styles/global';
 
 const Navbar = (): JSX.Element => {
   const router = useRouter();
 
   const [mobileIconClick, setMobileIconClick] = useState(false);
-  const [button, setButton] = useState(true);
 
   const handleMobileIconClick = () => setMobileIconClick(!mobileIconClick);
   const closeMobileMenu = () => setMobileIconClick(false);
 
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
+  // Add in the utils folder
+  // const [button, setButton] = useState(true);
+  // const showButton = () => {
+  //   if (window.innerWidth <= 960) {
+  //     setButton(false);
+  //   } else {
+  //     setButton(true);
+  //   }
+  // };
 
-  useEffect(() => {
-    showButton();
-  }, []);
+  // useEffect(() => {
+  //   showButton();
+  // }, []);
 
-  useEffect(() => {
-    window.addEventListener('resize', showButton);
-  });
+  // useEffect(() => {
+  //   window.addEventListener('resize', showButton);
+  // });
 
   const isActive = (path) => {
     if (router.pathname === path) {
-      return { color: 'red' };
+      return { color: '#4b59f7' };
     }
   };
   return (
@@ -65,60 +64,47 @@ const Navbar = (): JSX.Element => {
             {mobileIconClick ? <FaTimes /> : <FaBars />}
           </NavbarMobileMenuIcon>
 
-          <NavbarMobileMenu
+          <NavbarMenu
             onClick={handleMobileIconClick}
             mobileClick={mobileIconClick}
           >
             <NavbarItem>
               <Link href="/">
-                <NavLinks onClick={closeMobileMenu}>
+                <NavbarLinks onClick={closeMobileMenu}>
                   <NavbarMenuText style={isActive('/')}>Home</NavbarMenuText>
-                </NavLinks>
+                </NavbarLinks>
               </Link>
             </NavbarItem>
 
             <NavbarItem>
               <Link href="/">
-                <NavLinks onClick={closeMobileMenu}>
+                <NavbarLinks onClick={closeMobileMenu}>
                   <NavbarMenuText style={isActive('/dashboard')}>
                     Dashboard
                   </NavbarMenuText>
-                </NavLinks>
+                </NavbarLinks>
               </Link>
             </NavbarItem>
 
-            <>
-              <NavbarItem>
-                <Link href="/">
-                  <NavLinks onClick={closeMobileMenu}>
-                    <NavbarMenuText style={isActive('/signin')}>
-                      Signin
-                    </NavbarMenuText>
-                  </NavLinks>
-                </Link>
-              </NavbarItem>
+            <NavbarItem>
+              <Link href="/">
+                <NavbarLinks onClick={closeMobileMenu}>
+                  <NavbarMenuText style={isActive('/signin')}>
+                    Signin
+                  </NavbarMenuText>
+                </NavbarLinks>
+              </Link>
+            </NavbarItem>
 
-              <NavItemBtn>
-                {button ? (
-                  <Link href="/">
-                    <NavBtnLink>
-                      <SignUpBtn style={isActive('/signup')}>SIGN UP</SignUpBtn>
-                    </NavBtnLink>
-                  </Link>
-                ) : (
-                  <Link href="/">
-                    <NavBtnLink>
-                      <Button
-                        style={isActive('/signup')}
-                        onClick={closeMobileMenu}
-                      >
-                        SIGN UP
-                      </Button>
-                    </NavBtnLink>
-                  </Link>
-                )}
-              </NavItemBtn>
-            </>
+            <NavbarItemBtn>
+              <Link href="/">
+                <NavbarLinks>
+                  <SignUpBtn style={isActive('/signup')}>
+                    SIGN UP
+                  </SignUpBtn>
+                </NavbarLinks>
+              </Link>
+            </NavbarItemBtn>
 
             <NavbarItem>
               <SignoutBtn>
@@ -127,7 +113,7 @@ const Navbar = (): JSX.Element => {
                 </NavbarMenuText>
               </SignoutBtn>
             </NavbarItem>
-          </NavbarMobileMenu>
+          </NavbarMenu>
         </NavbarContent>
       </NavbarContainer>
     </IconContext.Provider>

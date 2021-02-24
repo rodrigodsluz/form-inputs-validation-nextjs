@@ -6,6 +6,7 @@ const theme = {
     colorTextBase: '#6A6180',
     navbarBackground: '#101522',
     navbarText: '#fff',
+    signUpBtn: 'blue',
   },
 };
 
