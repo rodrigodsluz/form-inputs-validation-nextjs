@@ -89,8 +89,6 @@ export const NavbarMenu = styled.ul<NavbarMenuProps>`
     flex-direction: column;
 
     width: 100%;
-    height: 40vh;
-
     position: absolute;
 
     top: 50px;
@@ -151,7 +149,6 @@ export const NavbarItemBtn = styled.li`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 120px;
   }
 `;
 
@@ -179,30 +176,6 @@ export const SignUpBtn = styled.button`
 
   @media screen and (max-width: 960px) {
     width: 30%;
-
-    top: -30px;
-
-    position: relative;
-  }
-`;
-
-export const SignoutBtn = styled.span`
-  color: #fff;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  height: 50px;
-  cursor: pointer;
-
-  @media screen and (max-width: 960px) {
-    text-align: center;
-    padding: 2rem;
-    width: 100%;
-    display: table;
-    &:hover {
-      color: #4b59f7;
-      transition: all 0.3s ease;
-    }
+    margin-top: 5px;
   }
 `;
