@@ -2,7 +2,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { IconContext } from 'react-icons/lib';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   NavbarContainer,
   NavbarContent,
@@ -15,7 +15,6 @@ import {
   NavbarLinks,
   NavbarItemBtn,
   SignUpBtn,
-  SignoutBtn,
 } from './styles';
 
 const Navbar = (): JSX.Element => {
@@ -90,7 +89,7 @@ const Navbar = (): JSX.Element => {
               <Link href="/">
                 <NavbarLinks onClick={closeMobileMenu}>
                   <NavbarMenuText style={isActive('/signin')}>
-                    Signin
+                    Sign in
                   </NavbarMenuText>
                 </NavbarLinks>
               </Link>
@@ -107,11 +106,11 @@ const Navbar = (): JSX.Element => {
             </NavbarItemBtn>
 
             <NavbarItem>
-              <SignoutBtn>
-                <NavbarMenuText style={{ cursor: 'pointer', color: '#fff' }}>
-                  Signout
+              <NavbarLinks>
+                <NavbarMenuText >
+                  Sign out
                 </NavbarMenuText>
-              </SignoutBtn>
+              </NavbarLinks>
             </NavbarItem>
           </NavbarMenu>
         </NavbarContent>

@@ -1,14 +1,12 @@
 import Head from 'next/head';
-import { Layout } from '../components';
+import { Navbar } from '../components';
 
 const Home: React.FC = () => (
   <>
     <Head>
       <title>Rodrigo Luz App</title>
     </Head>
-    <Layout title="Title" description="Description">
-      Content
-    </Layout>
+    <Navbar/>
   </>
 );
 
