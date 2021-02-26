@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { FaMagento } from 'react-icons/fa';
 
@@ -140,6 +140,7 @@ export const NavbarLinks = styled.a`
     width: 100%;
     display: table;
     padding: 3px;
+    height: 0;
 
     &:hover {
       color: #4b59f7;
