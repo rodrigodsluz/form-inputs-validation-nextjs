@@ -25,24 +25,6 @@ const Navbar = (): JSX.Element => {
   const handleMobileIconClick = () => setMobileIconClick(!mobileIconClick);
   const closeMobileMenu = () => setMobileIconClick(false);
 
-  // Add in the utils folder
-  // const [button, setButton] = useState(true);
-  // const showButton = () => {
-  //   if (window.innerWidth <= 960) {
-  //     setButton(false);
-  //   } else {
-  //     setButton(true);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   showButton();
-  // }, []);
-
-  // useEffect(() => {
-  //   window.addEventListener('resize', showButton);
-  // });
-
   const isActive = (path) => {
     if (router.pathname === path) {
       return { color: '#4b59f7' };
@@ -76,7 +58,7 @@ const Navbar = (): JSX.Element => {
             </NavbarItem>
 
             <NavbarItem>
-              <Link href="/">
+              <Link href="/dashboard">
                 <NavbarLinks onClick={closeMobileMenu}>
                   <NavbarMenuText style={isActive('/dashboard')}>
                     Dashboard

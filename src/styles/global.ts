@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   * {
@@ -21,12 +21,6 @@ export default createGlobalStyle`
     height: 100vh;
   }
 
-  /* #root {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  } */
-
   body,
   input,
   button,
@@ -35,20 +29,10 @@ export default createGlobalStyle`
     color: ${(props) => props.theme.colors.colorTextBase};
   }
 
-  /* .container {
-    width: 90vw;
-    max-width: 700px;
-  } */
-
   @media (min-width: 700px) {
     :root {
       font-size: 62.5%;
     }
   }
 
-`;
-
-export const Container = styled.div`
-    width: 90vw;
-    max-width: 700px;
 `;

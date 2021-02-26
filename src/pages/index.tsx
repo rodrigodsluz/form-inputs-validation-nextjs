@@ -1,13 +1,20 @@
 import Head from 'next/head';
-import { Navbar } from '../components';
+import { MainLayout } from '../components';
 
-const Home: React.FC = () => (
-  <>
-    <Head>
-      <title>Rodrigo Luz App</title>
-    </Head>
-    <Navbar/>
-  </>
-);
+const Home: React.FC = () => {
+  console.log('eae');
+
+  return (
+    <>
+      <Head>
+        <title>Rodrigo Luz App</title>
+      </Head>
+
+      <MainLayout>
+        <h1>Home</h1>
+      </MainLayout>
+    </>
+  );
+};
 
 export default Home;
