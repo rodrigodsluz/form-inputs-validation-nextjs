@@ -54,10 +54,15 @@ export const NavbarIcon = styled(FaMagento)`
 
 export const NavbarMenuText = styled.span`
   color: ${(props) => props.theme.colors.navbarText};
+  font-size: 1.6rem;
 
   &:hover {
     color: #4b59f7;
     transition: all 0.3s ease;
+  }
+
+  @media screen and (max-width: 960px) {
+    font-size: 1.2rem;
   }
 `;
 
