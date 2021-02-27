@@ -68,7 +68,7 @@ const Navbar = (): JSX.Element => {
             </NavbarItem>
 
             <NavbarItem>
-              <Link href="/">
+              <Link href="/signin">
                 <NavbarLinks onClick={closeMobileMenu}>
                   <NavbarMenuText style={isActive('/signin')}>
                     Sign in
@@ -78,7 +78,7 @@ const Navbar = (): JSX.Element => {
             </NavbarItem>
 
             <NavbarItemBtn>
-              <Link href="/">
+              <Link href="/signup">
                 <NavbarLinks>
                   <SignUpBtn style={isActive('/signup')}>
                     SIGN UP

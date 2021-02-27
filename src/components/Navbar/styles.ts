@@ -183,5 +183,6 @@ export const SignUpBtn = styled.button`
   @media screen and (max-width: 960px) {
     width: 30%;
     margin-top: 5px;
+    font-size: 1.2rem;
   }
 `;
