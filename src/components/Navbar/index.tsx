@@ -17,6 +17,8 @@ import {
   SignUpBtn,
 } from './styles';
 
+import { routes } from '../../routes';
+
 const Navbar = (): JSX.Element => {
   const router = useRouter();
 
@@ -24,24 +26,6 @@ const Navbar = (): JSX.Element => {
 
   const handleMobileIconClick = () => setMobileIconClick(!mobileIconClick);
   const closeMobileMenu = () => setMobileIconClick(false);
-
-  // Add in the utils folder
-  // const [button, setButton] = useState(true);
-  // const showButton = () => {
-  //   if (window.innerWidth <= 960) {
-  //     setButton(false);
-  //   } else {
-  //     setButton(true);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   showButton();
-  // }, []);
-
-  // useEffect(() => {
-  //   window.addEventListener('resize', showButton);
-  // });
 
   const isActive = (path) => {
     if (router.pathname === path) {
@@ -76,7 +60,7 @@ const Navbar = (): JSX.Element => {
             </NavbarItem>
 
             <NavbarItem>
-              <Link href="/">
+              <Link href={routes.dashboard}>
                 <NavbarLinks onClick={closeMobileMenu}>
                   <NavbarMenuText style={isActive('/dashboard')}>
                     Dashboard
@@ -86,7 +70,7 @@ const Navbar = (): JSX.Element => {
             </NavbarItem>
 
             <NavbarItem>
-              <Link href="/">
+              <Link href="/signin">
                 <NavbarLinks onClick={closeMobileMenu}>
                   <NavbarMenuText style={isActive('/signin')}>
                     Sign in
@@ -96,7 +80,7 @@ const Navbar = (): JSX.Element => {
             </NavbarItem>
 
             <NavbarItemBtn>
-              <Link href="/">
+              <Link href="/signup">
                 <NavbarLinks>
                   <SignUpBtn style={isActive('/signup')}>
                     SIGN UP
