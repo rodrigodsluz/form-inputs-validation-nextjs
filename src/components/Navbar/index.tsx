@@ -17,6 +17,8 @@ import {
   SignUpBtn,
 } from './styles';
 
+import { routes } from '../../routes';
+
 const Navbar = (): JSX.Element => {
   const router = useRouter();
 
@@ -58,7 +60,7 @@ const Navbar = (): JSX.Element => {
             </NavbarItem>
 
             <NavbarItem>
-              <Link href="/dashboard">
+              <Link href={routes.dashboard}>
                 <NavbarLinks onClick={closeMobileMenu}>
                   <NavbarMenuText style={isActive('/dashboard')}>
                     Dashboard
