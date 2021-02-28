@@ -29,7 +29,13 @@ const Navbar = (): JSX.Element => {
 
   const isActive = (path) => {
     if (router.pathname === path) {
-      return { color: '#4b59f7' };
+      return {
+        color: '#4b59f7',
+        background: '#101522',
+        border: '1px solid blue',
+        borderRadius: '25px',
+        padding: '3px 5px',
+      };
     }
   };
   return (
@@ -82,19 +88,17 @@ const Navbar = (): JSX.Element => {
             <NavbarItemBtn>
               <Link href="/signup">
                 <NavbarLinks>
-                  <SignUpBtn style={isActive('/signup')}>
-                    SIGN UP
-                  </SignUpBtn>
+                  <SignUpBtn style={isActive('/signup')}>SIGN UP</SignUpBtn>
                 </NavbarLinks>
               </Link>
             </NavbarItemBtn>
 
             <NavbarItem>
-              <NavbarLinks>
-                <NavbarMenuText >
-                  Sign out
-                </NavbarMenuText>
-              </NavbarLinks>
+              <Link href="/">
+                <NavbarLinks>
+                  <NavbarMenuText>Sign out</NavbarMenuText>
+                </NavbarLinks>
+              </Link>
             </NavbarItem>
           </NavbarMenu>
         </NavbarContent>
