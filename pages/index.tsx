@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { MainLayout } from '../components';
+import { MainLayout } from '../src/components';
 
 const Home: React.FC = () => {
   console.log('eae');
@@ -10,9 +10,7 @@ const Home: React.FC = () => {
         <title>D1 App</title>
       </Head>
 
-      <MainLayout>
-        <h1>Home</h1>
-      </MainLayout>
+      <MainLayout><h1>Home</h1></MainLayout>
     </>
   );
 };
