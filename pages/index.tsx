@@ -1,18 +1,13 @@
-import Head from 'next/head';
-import { MainLayout } from '../src/components';
+import HomeScreen from '@screens/Home';
 
-const Home: React.FC = () => {
-  console.log('eae');
-
-  return (
-    <>
-      <Head>
-        <title>D1 App</title>
-      </Head>
-
-      <MainLayout><h1>Home</h1></MainLayout>
-    </>
-  );
-};
+/**
+ * @export
+ * @component
+ * @name Home
+ *
+ * @description
+ * Home page
+ */
+const Home = (): JSX.Element => <HomeScreen />;
 
 export default Home;

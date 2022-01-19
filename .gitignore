@@ -1,5 +1,7 @@
 .vscode/
 *.env
+.next
+next.config.js
 # Logs
 logs
 *.log

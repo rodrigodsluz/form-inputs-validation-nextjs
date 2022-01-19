@@ -8,7 +8,23 @@ import Document, {
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-export default class MyDocument extends Document {
+const language = 'pt-br';
+
+type Props = {
+  styleTags: string;
+};
+
+/**
+ * @export
+ * @component
+ * @name ApplicationDocument
+ *
+ * @description
+ * Responsible for all settings of project.
+ * Allows us to override the default page layout and inject our own styles and markup.
+ * Only rendered on the server side.
+ */
+export default class ApplicationDocument extends Document<Props> {
   static async getInitialProps(
     ctx: DocumentContext,
   ): Promise<DocumentInitialProps> {
@@ -18,10 +34,11 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
+          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
+
       return {
         ...initialProps,
         styles: (
@@ -38,16 +55,15 @@ export default class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <Html lang="en">
+      <Html lang={language}>
         <Head>
-          <meta charSet="utf-8" />
-
+          <meta charSet="UTF-8" />
+          <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&family=Poppins&display=swap"
-            rel="stylesheet"
+            rel="icon"
+            type="image/x-icon"
+            href="/favicons/favicon-d1.png"
           />
-
-          <link rel="icon" href="https://rocketseat.com.br/favicon.ico" />
         </Head>
         <body>
           <Main />

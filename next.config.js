@@ -5,11 +5,12 @@ module.exports = withImages({
 });
 
 module.exports = {
-  typescript: {
-    // !! WARN !!
-    // Dangerously allow production builds to successfully complete even if
-    // your project has type errors.
-    // !! WARN !!
-    ignoreBuildErrors: true,
+  publicRuntimeConfig: {
+    API_DEVELOPMENT: 'http://localhost:8000/api',
+    API_PRODUCTION: 'https://lifeasier.com/api',
+    PRODUCTION: true,
+    APP_NAME: 'LIFEASIER',
+    DOMAIN_PRODUCTION: 'https://lifeasier.com',
+    DOMAIN_DEVELOPMENT: 'http://localhost:3000',
   },
 };
